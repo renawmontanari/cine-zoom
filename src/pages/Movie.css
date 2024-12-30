@@ -52,3 +52,34 @@
 .description p {
   line-height: 1.4rem;
 }
+
+/* Trailers */
+.trailer-container {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  padding: 8px;
+  scrollbar-width: thin;
+  scrollbar-color: #888 transparent;
+}
+
+.trailer-container iframe {
+  width: 320px;
+  height: 180px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo personalizado para barra de rolagem no Chrome/Edge */
+.trailer-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.trailer-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.trailer-container::-webkit-scrollbar-track {
+  background-color: transparent;
+}

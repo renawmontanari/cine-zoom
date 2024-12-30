@@ -11,18 +11,27 @@ import MovieCard from "../components/MovieCard";
 
 import "./Movie.css";
 
-const moviesURL = import.meta.env.VITE_API;
-const apiKey = import.meta.env.VITE_API_KEY;
+// Atualize com os valores reais
+const moviesURL = "https://api.themoviedb.org/3/movie/";
+const apiKey = "api_key=f1e261c497ddec75f0db9740e335d0ec";
 
 const Movie = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
+  const [trailers, setTrailers] = useState([]);
 
   const getMovie = async (url) => {
     const res = await fetch(url);
     const data = await res.json();
 
     setMovie(data);
+  };
+
+  const getTrailers = async (url) => {
+    const res = await fetch(url);
+    const data = await res.json();
+
+    setTrailers(data.results || []);
   };
 
   const formatCurrency = (number) => {
@@ -35,7 +44,12 @@ const Movie = () => {
   useEffect(() => {
     const movieUrl = `${moviesURL}${id}?${apiKey}`;
     getMovie(movieUrl);
-  }, []);
+  }, [id]);
+
+  useEffect(() => {
+    const trailerUrl = `${moviesURL}${id}/videos?${apiKey}`;
+    getTrailers(trailerUrl);
+  }, [id]);
 
   return (
     <div className="movie-page">
@@ -66,6 +80,27 @@ const Movie = () => {
               <BsFillFileEarmarkTextFill /> Descrição:
             </h3>
             <p>{movie.overview}</p>
+          </div>
+
+          {/* Renderização de Trailers */}
+          <h2>Trailers</h2>
+          <div className="trailer-container">
+            {trailers.length > 0 ? (
+              trailers.map((trailer) => (
+                <iframe
+                  key={trailer.id}
+                  width="560"
+                  height="315"
+                  src={`https://www.youtube.com/embed/${trailer.key}`}
+                  title={trailer.name}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              ))
+            ) : (
+              <p>Nenhum trailer disponível.</p>
+            )}
           </div>
         </>
       )}

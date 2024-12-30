@@ -25,6 +25,8 @@ const Navbar = () => {
           CineZoom
         </Link>
       </h2>
+      <h3>Favoritos</h3>
+      <h3>Forum</h3>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
