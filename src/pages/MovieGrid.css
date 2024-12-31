@@ -6,7 +6,7 @@
 }
 
 .title .query-text {
-  color: #f7d354;
+  color: rgb(0, 71, 202);
 }
 
 .movies-container {
@@ -43,14 +43,14 @@
 }
 
 .movies-container div svg {
-  color: #f7d354;
+  color: rgb(0, 71, 202);
 }
 
 .movies-container div a {
-  background-color: #f7d354;
-  border: 2px solid #f7d354;
+  background-color: rgb(0, 71, 202);
+  border: 2px solid rgb(0, 71, 202);
   border-radius: 4px;
-  color: #000;
+  color: #ffffff;
   padding: 1rem 0.5rem;
   text-align: center;
   font-weight: bold;
@@ -58,7 +58,7 @@
 
 .movies-container div a:hover {
   background-color: transparent;
-  color: #f7d354;
+  color: rgb(0, 71, 202);
 }
 
 @media (max-width: 425px) {
@@ -100,10 +100,10 @@
   }
 
   .movies-container div a {
-    background-color: #f7d354;
-    border: 2px solid #f7d354;
+    background-color: rgb(0, 71, 202);
+    border: 2px solid rgb(0, 71, 202);
     border-radius: 4px;
-    color: #000;
+    color: #ffffff;
     padding: 1rem 0.5rem;
     text-align: center;
     font-weight: bold;
@@ -111,7 +111,7 @@
 
   .movies-container div a:hover {
     background-color: transparent;
-    color: #f7d354;
+    color: rgba(0, 71, 202, 0.767);
   }
 
   /* Estilo personalizado para barra de rolagem (opcional, para navegadores baseados em WebKit) */
