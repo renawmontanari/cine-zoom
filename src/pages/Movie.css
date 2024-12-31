@@ -85,7 +85,35 @@
   }
 
   .trailer-container {
-    gap: 16px;
+    display: flex;
+    flex-wrap: nowrap; /* Impede quebra de linha */
+    gap: 12px; /* Espaço entre os trailers */
+    overflow-x: auto; /* Habilita rolagem horizontal */
+    padding: 8px;
+    scrollbar-width: thin; /* Estiliza scrollbar */
+    scrollbar-color: #888 transparent;
+  }
+
+  .trailer-container iframe {
+    flex: 0 0 auto; /* Garante que cada iframe mantenha seu tamanho */
+    width: 280px; /* Largura ajustada */
+    height: 160px; /* Altura proporcional */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras para melhorar a estética */
+  }
+
+  /* Estilo personalizado para barra de rolagem (opcional para navegadores baseados em WebKit) */
+  .trailer-container::-webkit-scrollbar {
+    height: 8px; /* Altura da barra de rolagem */
+  }
+
+  .trailer-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+
+  .trailer-container::-webkit-scrollbar-track {
+    background-color: transparent;
   }
 }
 
@@ -100,7 +128,35 @@
   }
 
   .trailer-container {
-    gap: 24px;
+    display: flex;
+    flex-wrap: nowrap; /* Impede quebra de linha */
+    gap: 12px; /* Espaço entre os trailers */
+    overflow-x: auto; /* Habilita rolagem horizontal */
+    padding: 8px;
+    scrollbar-width: thin; /* Estiliza scrollbar */
+    scrollbar-color: #888 transparent;
+  }
+
+  .trailer-container iframe {
+    flex: 0 0 auto; /* Garante que cada iframe mantenha seu tamanho */
+    width: 280px; /* Largura ajustada */
+    height: 160px; /* Altura proporcional */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras para melhorar a estética */
+  }
+
+  /* Estilo personalizado para barra de rolagem (opcional para navegadores baseados em WebKit) */
+  .trailer-container::-webkit-scrollbar {
+    height: 8px; /* Altura da barra de rolagem */
+  }
+
+  .trailer-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+
+  .trailer-container::-webkit-scrollbar-track {
+    background-color: transparent;
   }
 }
 
@@ -114,8 +170,35 @@
     text-align: left; /* Alinha texto à esquerda para desktops */
   }
 
+  .trailer-container {
+    display: flex;
+    flex-wrap: nowrap; /* Impede quebra de linha */
+    gap: 12px; /* Espaço entre os trailers */
+    overflow-x: auto; /* Habilita rolagem horizontal */
+    padding: 8px;
+    scrollbar-width: thin; /* Estiliza scrollbar */
+    scrollbar-color: #888 transparent;
+  }
+
   .trailer-container iframe {
-    width: 400px;
-    height: 225px; /* Ajusta tamanho dos trailers */
+    flex: 0 0 auto; /* Garante que cada iframe mantenha seu tamanho */
+    width: 280px; /* Largura ajustada */
+    height: 160px; /* Altura proporcional */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras para melhorar a estética */
+  }
+
+  /* Estilo personalizado para barra de rolagem (opcional para navegadores baseados em WebKit) */
+  .trailer-container::-webkit-scrollbar {
+    height: 8px; /* Altura da barra de rolagem */
+  }
+
+  .trailer-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+
+  .trailer-container::-webkit-scrollbar-track {
+    background-color: transparent;
   }
 }
