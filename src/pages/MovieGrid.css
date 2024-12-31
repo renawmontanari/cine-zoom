@@ -60,3 +60,108 @@
   background-color: transparent;
   color: #f7d354;
 }
+
+@media (max-width: 425px) {
+  .container .title {
+    font-size: 1.8rem; /* Reduz tamanho da fonte */
+    margin: 1.5rem 0 1rem;
+  }
+
+  .movies-container {
+    display: flex;
+    flex-wrap: nowrap; /* Impede a quebra de linha */
+    gap: 1rem; /* Espaço entre os cards */
+    overflow-x: auto; /* Habilita rolagem horizontal */
+    padding: 1rem;
+    scrollbar-width: thin; /* Ajuste para navegadores compatíveis */
+    scrollbar-color: #888 transparent;
+  }
+
+  .movies-container div {
+    flex: 0 0 auto; /* Garante que cada card mantenha seu tamanho */
+    width: 300px; /* Define uma largura fixa para os cards */
+    color: #fff;
+    background-color: #111;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .movies-container div img {
+    max-width: 100%;
+  }
+
+  .movies-container div img,
+  .movies-container div p {
+    margin-bottom: 1rem;
+  }
+
+  .movies-container div h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .movies-container div a {
+    background-color: #f7d354;
+    border: 2px solid #f7d354;
+    border-radius: 4px;
+    color: #000;
+    padding: 1rem 0.5rem;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .movies-container div a:hover {
+    background-color: transparent;
+    color: #f7d354;
+  }
+
+  /* Estilo personalizado para barra de rolagem (opcional, para navegadores baseados em WebKit) */
+  .movies-container::-webkit-scrollbar {
+    height: 8px; /* Altura da barra de rolagem */
+  }
+
+  .movies-container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 4px;
+  }
+
+  .movies-container::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  .movies-container div a {
+    padding: 0.8rem 0.5rem; /* Ajusta botão */
+    font-size: 0.9rem; /* Fonte menor no botão */
+  }
+}
+
+@media (min-width: 426px) and (max-width: 767px) {
+  .container .title {
+    font-size: 2.2rem; /* Tamanho intermediário */
+    margin: 1.8rem 0 1rem;
+  }
+
+  .movies-container {
+    padding: 1.5rem;
+  }
+
+  .movies-container div {
+    width: 48%; /* Dois cards por linha */
+    margin-bottom: 2rem;
+  }
+
+  .movies-container div a {
+    font-size: 1rem; /* Ajusta fonte do botão */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .movies-container div {
+    width: 45%; /* Ajusta para caber mais cards */
+  }
+}
+
+@media (min-width: 1024px) {
+  .movies-container div {
+    width: 30%; /* Retorna ao tamanho padrão */
+  }
+}

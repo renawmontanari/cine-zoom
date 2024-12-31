@@ -34,3 +34,72 @@
   align-items: center;
   cursor: pointer;
 }
+
+@media (max-width: 425px) {
+  #navbar {
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+  }
+
+  #navbar h2 a {
+    font-size: 1.2rem; /* Reduz tamanho do texto */
+    gap: 0.3rem;
+  }
+
+  #navbar form {
+    flex-direction: row;
+    gap: 0.3rem; /* Reduz o espaço entre elementos */
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  #navbar input {
+    width: 100%; /* Faz o campo ocupar toda a largura */
+  }
+
+  #navbar form button {
+    font-size: 1rem; /* Reduz tamanho da fonte */
+    padding: 0.4rem; /* Ajusta o botão */
+    width: 8%; /* Botão também ocupa toda a largura */
+  }
+}
+
+@media (min-width: 426px) and (max-width: 767px) {
+  #navbar {
+    flex-direction: row;
+    padding: 1rem 1.5rem;
+  }
+
+  #navbar h2 a {
+    font-size: 1.5rem;
+  }
+
+  #navbar input {
+    width: auto; /* Volta ao tamanho padrão */
+  }
+
+  #navbar form button {
+    font-size: 1.1rem;
+    padding: 0.4rem 0.8rem;
+  }
+}
+
+@media (min-width: 768px) {
+  #navbar {
+    flex-direction: row;
+    padding: 1rem 2rem;
+  }
+
+  #navbar h2 a {
+    font-size: 1.8rem; /* Tamanho maior para telas grandes */
+  }
+
+  #navbar input {
+    width: auto;
+  }
+
+  #navbar form button {
+    font-size: 1.3rem; /* Tamanho original */
+    padding: 0.3rem 0.8rem;
+  }
+}
