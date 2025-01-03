@@ -4,6 +4,8 @@ import { FaStar } from "react-icons/fa";
 
 const imageUrl = import.meta.env.VITE_IMG;
 
+import "./MovieCard.css";
+
 const MovieCard = ({ movie, showLink = true }) => {
   return (
     <div className="movie-card">
