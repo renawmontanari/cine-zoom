@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
 
+import "./Home.css";
+
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
 
@@ -20,10 +22,12 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
-      <h2 className="title">Filmes mais bem avaliados:</h2>
-      <div>
-        {topMovies.length === 0 && <p>Carregando...</p>}
+    <div className="home-container">
+      <h2>Filmes mais bem avaliados:</h2>
+      <div className="movies-list">
+        {topMovies.length === 0 && (
+          <p className="loading-message">Carregando...</p>
+        )}
         {topMovies.length > 0 &&
           topMovies.map((movie) => <MovieCard key={movie.id} movie={movie} />)}
       </div>
