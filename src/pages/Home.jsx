@@ -9,7 +9,15 @@ const apiKey = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
   const [topMovies, setTopMovies] = useState([]);
-  const { sliderRef, onMouseDown } = useDragScroll();
+  const {
+    sliderRef,
+    onMouseDown,
+    onTouchStart,
+    onMouseMove,
+    onTouchMove,
+    onMouseUp,
+    onTouchEnd,
+  } = useDragScroll();
 
   const getTopRatedMovies = async (url) => {
     const res = await fetch(url);
@@ -30,6 +38,11 @@ const Home = () => {
         className="movies-list"
         ref={sliderRef}
         onMouseDown={onMouseDown}
+        onTouchStart={onTouchStart}
+        onMouseMove={onMouseMove}
+        onTouchMove={onTouchMove}
+        onMouseUp={onMouseUp}
+        onTouchEnd={onTouchEnd}
         style={{ cursor: "grab" }}
       >
         {topMovies.length === 0 && (

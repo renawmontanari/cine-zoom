@@ -10,6 +10,7 @@ import {
 import MovieCard from "../components/MovieCard";
 
 import "./Movie.css";
+import { useDragScroll } from "../hooks/useDragScroll";
 
 // Atualize com os valores reais
 const moviesURL = "https://api.themoviedb.org/3/movie/";
@@ -19,6 +20,15 @@ const Movie = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const [trailers, setTrailers] = useState([]);
+  const {
+    sliderRef,
+    onMouseDown,
+    onTouchStart,
+    onMouseMove,
+    onTouchMove,
+    onMouseUp,
+    onTouchEnd,
+  } = useDragScroll();
 
   const getMovie = async (url) => {
     const res = await fetch(url);
@@ -104,19 +114,34 @@ const Movie = () => {
 
           {/* Renderização de Trailers */}
           <h2>Trailers</h2>
-          <div className="trailer-container">
+          <div
+            className="trailer-container"
+            ref={sliderRef}
+            onMouseDown={onMouseDown}
+            onTouchStart={onTouchStart}
+            onMouseMove={onMouseMove}
+            onTouchMove={onTouchMove}
+            onMouseUp={onMouseUp}
+            onTouchEnd={onTouchEnd}
+            style={{ cursor: "grab" }}
+          >
             {trailers.length > 0 ? (
               trailers.map((trailer) => (
-                <iframe
-                  key={trailer.id}
-                  width="560"
-                  height="315"
-                  src={`https://www.youtube.com/embed/${trailer.key}`}
-                  title={trailer.name}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
+                <>
+                  <div>
+                    <iframe
+                      key={trailer.id}
+                      width="560"
+                      height="315"
+                      src={`https://www.youtube.com/embed/${trailer.key}`}
+                      title={trailer.name}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                    <p className="title-trailer">{trailer.name}</p>
+                  </div>
+                </>
               ))
             ) : (
               <p>Nenhum trailer disponível.</p>

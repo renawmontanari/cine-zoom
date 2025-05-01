@@ -2,35 +2,47 @@ import { useRef } from "react";
 
 export const useDragScroll = () => {
   const sliderRef = useRef(null);
+  let isDragging = false;
+  let startPos = 0;
+  let currentScroll = 0;
 
-  const handleMouseDown = (e) => {
-    if (!sliderRef.current) return;
+  const handleStart = (e) => {
+    isDragging = true;
 
-    const slider = sliderRef.current;
-    slider.style.cursor = "grabbing";
+    // Para mouse (clientX) ou touch (touches[0].clientX)
+    startPos = e.clientX || e.touches[0].clientX;
+    currentScroll = sliderRef.current.scrollLeft;
 
-    const startX = e.pageX - slider.offsetLeft;
-    const scrollLeft = slider.scrollLeft;
+    // Aplica o cursor de arrastar (apenas para desktop)
+    if (sliderRef.current) {
+      sliderRef.current.style.cursor = "grabbing";
+    }
+  };
 
-    const handleMouseMove = (e) => {
-      e.preventDefault();
-      const x = e.pageX - slider.offsetLeft;
-      const walk = (x - startX) * 2; // Velocidade do arrasto
-      slider.scrollLeft = scrollLeft - walk;
-    };
+  const handleMove = (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
 
-    const handleMouseUp = () => {
-      slider.style.cursor = "grab";
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
-    };
+    // Obtém a posição atual (mouse ou touch)
+    const currentPos = e.clientX || e.touches[0].clientX;
+    const distance = currentPos - startPos;
+    sliderRef.current.scrollLeft = currentScroll - distance;
+  };
 
-    document.addEventListener("mousemove", handleMouseMove);
-    document.addEventListener("mouseup", handleMouseUp);
+  const handleEnd = () => {
+    isDragging = false;
+    if (sliderRef.current) {
+      sliderRef.current.style.cursor = "grab";
+    }
   };
 
   return {
     sliderRef,
-    onMouseDown: handleMouseDown,
+    onMouseDown: handleStart,
+    onTouchStart: handleStart,
+    onMouseMove: handleMove,
+    onTouchMove: handleMove,
+    onMouseUp: handleEnd,
+    onTouchEnd: handleEnd,
   };
 };
