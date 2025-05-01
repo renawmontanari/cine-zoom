@@ -73,24 +73,18 @@
 
 .meta-icon {
   margin-right: 5px;
-  color: #e50914;
 }
 
 .details-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #e50914;
   color: white;
   padding: 10px 20px;
   border-radius: 25px;
   text-decoration: none;
   transition: background 0.3s ease;
   gap: 8px;
-}
-
-.details-btn:hover {
-  background: #b20710;
 }
 
 .btn-icon {

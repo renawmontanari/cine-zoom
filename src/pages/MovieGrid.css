@@ -87,7 +87,8 @@
 }
 
 .details-btn:hover {
-  background: rgb(55, 230, 63);
+  background: rgb(34, 20, 219);
+  color: aliceblue;
 }
 
 .btn-icon {
