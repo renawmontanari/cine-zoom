@@ -1,7 +1,6 @@
 .home-container {
   padding: 20px;
   max-width: 100%;
-  overflow-x: auto;
 }
 
 .home-container h2 {
@@ -14,6 +13,14 @@
   display: flex;
   gap: 10px;
   padding-bottom: 10px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  cursor: grab;
+  user-select: none;
+}
+
+.movies-list:active {
+  cursor: grabbing;
 }
 
 .movie-card {
