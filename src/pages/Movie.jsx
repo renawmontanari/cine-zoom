@@ -55,48 +55,49 @@ const Movie = () => {
     <div className="movie-page">
       {movie && (
         <>
-          <MovieCard movie={movie} showLink={false} />
+          <div className="container-content">
+            <MovieCard movie={movie} showLink={false} />
 
-          <p className="tagline">{movie.tagline}</p>
+            <div className="info-grid">
+              <p className="tagline">{movie.tagline}</p>
+              <div className="info-box">
+                <div className="info-header">
+                  <BsWallet2 className="info-icon" />
+                  <h3>Orçamento</h3>
+                </div>
+                <div className="info-content">
+                  <p>{formatCurrency(movie.budget)}</p>
+                </div>
+              </div>
 
-          <div className="info-grid">
-            <div className="info-box">
-              <div className="info-header">
-                <BsWallet2 className="info-icon" />
-                <h3>Orçamento</h3>
+              <div className="info-box">
+                <div className="info-header">
+                  <BsGraphUp className="info-icon" />
+                  <h3>Receita</h3>
+                </div>
+                <div className="info-content">
+                  <p>{formatCurrency(movie.revenue)}</p>
+                </div>
               </div>
-              <div className="info-content">
-                <p>{formatCurrency(movie.budget)}</p>
-              </div>
-            </div>
 
-            <div className="info-box">
-              <div className="info-header">
-                <BsGraphUp className="info-icon" />
-                <h3>Receita</h3>
+              <div className="info-box">
+                <div className="info-header">
+                  <BsHourglassSplit className="info-icon" />
+                  <h3>Duração</h3>
+                </div>
+                <div className="info-content">
+                  <p>{movie.runtime} minutos</p>
+                </div>
               </div>
-              <div className="info-content">
-                <p>{formatCurrency(movie.revenue)}</p>
-              </div>
-            </div>
 
-            <div className="info-box">
-              <div className="info-header">
-                <BsHourglassSplit className="info-icon" />
-                <h3>Duração</h3>
-              </div>
-              <div className="info-content">
-                <p>{movie.runtime} minutos</p>
-              </div>
-            </div>
-
-            <div className="info-box description-box">
-              <div className="info-header">
-                <BsFillFileEarmarkTextFill className="info-icon" />
-                <h3>Sinopse</h3>
-              </div>
-              <div className="info-content">
-                <p className="description-text">{movie.overview}</p>
+              <div className="info-box description-box">
+                <div className="info-header">
+                  <BsFillFileEarmarkTextFill className="info-icon" />
+                  <h3>Sinopse</h3>
+                </div>
+                <div className="info-content">
+                  <p className="description-text">{movie.overview}</p>
+                </div>
               </div>
             </div>
           </div>

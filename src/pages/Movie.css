@@ -15,6 +15,30 @@
   max-width: 100%; /* Garante imagens responsivas */
 }
 
+.container-content {
+  display: flex;
+  flex-direction: row;
+}
+
+.info-grid {
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.tagline {
+  font-size: 26px;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.info-header {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
 .trailer-container iframe {
   width: 100%; /* Ajusta trailers para largura total */
   height: auto; /* Mantém proporção */

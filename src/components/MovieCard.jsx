@@ -25,7 +25,7 @@ const MovieCard = ({ movie, showLink = true }) => {
           className="movie-poster"
         />
         <span className="rating">
-          <FaStar className="star-icon" /> {movie.vote_average}
+          <FaStar className="star-icon" /> {movie.vote_average.toFixed(1)}
         </span>
       </div>
 
