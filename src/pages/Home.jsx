@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import MovieCard from "../components/MovieCard";
 
 import "./Home.css";
+import { useDragScroll } from "../hooks/useDragScroll";
 
 const moviesURL = import.meta.env.VITE_API;
 const apiKey = import.meta.env.VITE_API_KEY;
 
 const Home = () => {
   const [topMovies, setTopMovies] = useState([]);
+  const { sliderRef, onMouseDown } = useDragScroll();
 
   const getTopRatedMovies = async (url) => {
     const res = await fetch(url);
@@ -24,7 +26,12 @@ const Home = () => {
   return (
     <div className="home-container">
       <h2>Filmes mais bem avaliados:</h2>
-      <div className="movies-list">
+      <div
+        className="movies-list"
+        ref={sliderRef}
+        onMouseDown={onMouseDown}
+        style={{ cursor: "grab" }}
+      >
         {topMovies.length === 0 && (
           <p className="loading-message">Carregando...</p>
         )}

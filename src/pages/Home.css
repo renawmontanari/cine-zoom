@@ -13,7 +13,7 @@
   display: flex;
   gap: 10px;
   padding-bottom: 10px;
-  overflow-x: auto;
+  overflow-x: hidden;
   scrollbar-width: thin;
   cursor: grab;
   user-select: none;
