@@ -21,14 +21,13 @@ const Search = () => {
       setMovies(data.results);
     } catch (error) {
       console.error("Failed to fetch searched movies:", error);
-      // Optionally, set an error state here to display an error message to the user
     } finally {
-      setLoading(false); // Set loading to false after fetch
+      setLoading(false);
     }
   };
 
   useEffect(() => {
-    setLoading(true); // Set loading to true when query changes
+    setLoading(true);
     const searchWithQueryURL = `${searchURL}?${apiKey}&query=${query}`;
     getSearchedMovies(searchWithQueryURL);
   }, [query]);
