@@ -1,228 +1,200 @@
 .movie-page {
-  color: #fff;
-  display: grid;
-  flex-direction: column;
-  max-width: 100%;
-  margin: 1rem auto;
-  padding: 0 1rem;
+  color: var(--text-primary);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem clamp(1rem, 4vw, 2rem);
 }
 
-.movie-page .movie-card h2 {
-  font-size: 1.3rem; /* Ajuste menor para telas bem pequenas */
+.movie-loading {
+  text-align: center;
+  color: var(--text-secondary);
+  padding: 4rem 1rem;
+  font-size: 1.1rem;
 }
 
-.movie-page .movie-card img {
-  max-width: 100%; /* Garante imagens responsivas */
+.movie-page .movie-card {
+  max-width: 340px;
+  margin: 0;
+}
+
+.movie-page .movie-card .movie-poster {
+  height: 500px;
+}
+
+.movie-page .movie-card h2.movie-title {
+  font-size: 1.5rem;
+  min-height: auto;
+  justify-content: flex-start;
+  text-align: left;
 }
 
 .container-content {
   display: flex;
   flex-direction: row;
+  gap: 2.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .info-grid {
-  padding: 10px;
-  margin-top: 20px;
+  flex: 1;
+  min-width: 280px;
+  padding: 0;
+  margin-top: 0;
 }
 
 .tagline {
-  font-size: 26px;
+  font-size: 1.25rem;
   font-weight: 500;
-  margin-bottom: 25px;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-style: italic;
+  line-height: 1.4;
+}
+
+.info-box {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.info-box:hover {
+  border-color: var(--accent-muted);
 }
 
 .info-header {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
-  margin-bottom: 8px;
-  margin-top: 8px;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.info-icon {
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.info-box h3 {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.info-content p {
+  color: var(--text-primary);
+  font-size: 1rem;
+}
+
+.description-box .info-content .description-text {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+.movie-page h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 2.5rem 0 1rem;
+  color: var(--text-primary);
+}
+
+.trailer-container {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0.5rem 0 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-muted) transparent;
+  cursor: grab;
+  user-select: none;
+}
+
+.trailer-container:active {
+  cursor: grabbing;
+}
+
+.trailer-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.trailer-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.trailer-container::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+}
+
+.trailer-container > div {
+  flex: 0 0 auto;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform 0.2s ease;
+}
+
+.trailer-container > div:hover {
+  transform: translateY(-4px);
 }
 
 .trailer-container iframe {
-  width: 100%; /* Ajusta trailers para largura total */
-  height: auto; /* Mantém proporção */
+  width: 320px;
+  height: 180px;
+  display: block;
+  border: none;
 }
 
-@media (max-width: 425px) {
-  .movie-page {
-    padding: 0.5rem; /* Reduz padding em dispositivos menores */
+.title-trailer {
+  padding: 0.75rem 1rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.trailer-container p:last-child {
+  margin-bottom: 0;
+}
+
+.movie-page .trailer-container + p,
+.movie-page .trailer-container > p {
+  color: var(--text-muted);
+  padding: 1rem 0;
+}
+
+@media (max-width: 640px) {
+  .container-content {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .movie-page .movie-card h2 {
-    font-size: 1.2rem; /* Fonte menor para títulos */
+  .movie-page .movie-card {
+    max-width: 100%;
   }
 
-  .movie-page .movie-card p {
-    font-size: 0.8rem; /* Reduz tamanho do texto */
+  .movie-page .movie-card .movie-poster {
+    height: 420px;
   }
 
   .tagline {
-    font-size: 1rem; /* Ajusta fonte da tagline */
-  }
-
-  .info h3 {
-    font-size: 1rem; /* Reduz o tamanho dos subtítulos */
-    gap: 0.3rem; /* Diminui espaçamento */
-  }
-
-  .trailer-container {
-    display: flex;
-    flex-wrap: nowrap; /* Impede quebra de linha */
-    gap: 12px; /* Espaço entre os trailers */
-    overflow-x: auto; /* Habilita rolagem horizontal */
-    padding: 8px;
-    scrollbar-width: thin; /* Estiliza scrollbar */
-    scrollbar-color: #888 transparent;
+    font-size: 1rem;
   }
 
   .trailer-container iframe {
-    flex: 0 0 auto; /* Garante que cada iframe mantenha seu tamanho */
-    width: 280px; /* Largura ajustada */
-    height: 160px; /* Altura proporcional */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras para melhorar a estética */
-  }
-
-  /* Estilo personalizado para barra de rolagem (opcional para navegadores baseados em WebKit) */
-  .trailer-container::-webkit-scrollbar {
-    height: 8px; /* Altura da barra de rolagem */
-  }
-
-  .trailer-container::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 4px;
-  }
-
-  .trailer-container::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-}
-
-@media (min-width: 426px) and (max-width: 767px) {
-  .movie-page .movie-card h2 {
-    font-size: 1.5rem; /* Tamanho intermediário para telas maiores */
-  }
-
-  .movie-page .movie-card p {
-    font-size: 0.9rem;
-  }
-
-  .trailer-container {
-    display: flex;
-    flex-wrap: nowrap; /* Impede quebra de linha */
-    gap: 12px; /* Espaço entre os trailers */
-    overflow-x: auto; /* Habilita rolagem horizontal */
-    padding: 8px;
-    scrollbar-width: thin; /* Estiliza scrollbar */
-    scrollbar-color: #888 transparent;
-  }
-
-  .trailer-container iframe {
-    flex: 0 0 auto; /* Garante que cada iframe mantenha seu tamanho */
-    width: 280px; /* Largura ajustada */
-    height: 160px; /* Altura proporcional */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras para melhorar a estética */
-  }
-
-  /* Estilo personalizado para barra de rolagem (opcional para navegadores baseados em WebKit) */
-  .trailer-container::-webkit-scrollbar {
-    height: 8px; /* Altura da barra de rolagem */
-  }
-
-  .trailer-container::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 4px;
-  }
-
-  .trailer-container::-webkit-scrollbar-track {
-    background-color: transparent;
+    width: 280px;
+    height: 158px;
   }
 }
 
 @media (min-width: 768px) {
-  .movie-page {
-    max-width: 600px;
-    margin: 2rem auto;
-  }
-
-  .movie-page .movie-card h2 {
-    font-size: 2rem; /* Aumenta o tamanho do texto para tablets */
-  }
-
-  .trailer-container {
-    display: flex;
-    flex-wrap: nowrap; /* Impede quebra de linha */
-    gap: 12px; /* Espaço entre os trailers */
-    overflow-x: auto; /* Habilita rolagem horizontal */
-    padding: 8px;
-    scrollbar-width: thin; /* Estiliza scrollbar */
-    scrollbar-color: #888 transparent;
-  }
-
   .trailer-container iframe {
-    flex: 0 0 auto; /* Garante que cada iframe mantenha seu tamanho */
-    width: 280px; /* Largura ajustada */
-    height: 160px; /* Altura proporcional */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras para melhorar a estética */
-  }
-
-  /* Estilo personalizado para barra de rolagem (opcional para navegadores baseados em WebKit) */
-  .trailer-container::-webkit-scrollbar {
-    height: 8px; /* Altura da barra de rolagem */
-  }
-
-  .trailer-container::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 4px;
-  }
-
-  .trailer-container::-webkit-scrollbar-track {
-    background-color: transparent;
-  }
-}
-
-@media (min-width: 1024px) {
-  .movie-page {
-    max-width: 900px; /* Alinha a largura para desktops */
-    margin: 3rem auto;
-  }
-
-  .movie-page .movie-card {
-    text-align: left; /* Alinha texto à esquerda para desktops */
-  }
-
-  .trailer-container {
-    display: flex;
-    flex-wrap: nowrap; /* Impede quebra de linha */
-    gap: 12px; /* Espaço entre os trailers */
-    overflow-x: auto; /* Habilita rolagem horizontal */
-    padding: 8px;
-    scrollbar-width: thin; /* Estiliza scrollbar */
-    scrollbar-color: #888 transparent;
-  }
-
-  .trailer-container iframe {
-    flex: 0 0 auto; /* Garante que cada iframe mantenha seu tamanho */
-    width: 280px; /* Largura ajustada */
-    height: 160px; /* Altura proporcional */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombras para melhorar a estética */
-  }
-
-  /* Estilo personalizado para barra de rolagem (opcional para navegadores baseados em WebKit) */
-  .trailer-container::-webkit-scrollbar {
-    height: 8px; /* Altura da barra de rolagem */
-  }
-
-  .trailer-container::-webkit-scrollbar-thumb {
-    background-color: #888;
-    border-radius: 4px;
-  }
-
-  .trailer-container::-webkit-scrollbar-track {
-    background-color: transparent;
+    width: 360px;
+    height: 202px;
   }
 }

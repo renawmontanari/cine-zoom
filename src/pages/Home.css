@@ -1,65 +1,35 @@
 .home-container {
-  padding: 20px;
+  padding: 2rem clamp(1rem, 4vw, 3rem);
   max-width: 100%;
 }
 
 .home-container h2 {
-  font-size: 24px;
-  margin-bottom: 20px;
-  color: #a0a0a0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
 .movies-list {
   display: flex;
-  gap: 10px;
-  padding-bottom: 10px;
-  overflow-x: hidden;
+  gap: 1.25rem;
+  padding: 0.5rem 0 1.5rem;
+  overflow-x: auto;
   scrollbar-width: thin;
+  scrollbar-color: var(--text-muted) transparent;
   cursor: grab;
   user-select: none;
+  scroll-behavior: smooth;
 }
 
 .movies-list:active {
   cursor: grabbing;
 }
 
-.movie-card {
+.home-container .movie-card {
   flex: 0 0 auto;
   width: 200px;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out;
-}
-
-.movie-card:hover {
-  transform: scale(1.05);
-}
-
-.movie-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.movie-card h3 {
-  font-size: 12px;
-  margin: 10px 0;
-  padding: 0 10px;
-  color: #444;
-}
-
-.movie-card p {
-  font-size: 14px;
-  padding: 0 10px 10px;
-  color: #666;
-}
-
-.loading-message {
-  font-size: 18px;
-  color: #666;
-  text-align: center;
-  margin-top: 20px;
 }
 
 .movies-list::-webkit-scrollbar {
@@ -67,15 +37,22 @@
 }
 
 .movies-list::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: transparent;
   border-radius: 4px;
 }
 
 .movies-list::-webkit-scrollbar-thumb {
-  background: #888;
+  background: var(--text-muted);
   border-radius: 4px;
 }
 
 .movies-list::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--text-secondary);
+}
+
+.loading-message {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  text-align: center;
+  padding: 3rem 1rem;
 }

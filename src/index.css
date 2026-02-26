@@ -1,21 +1,47 @@
+:root {
+  --bg-primary: #0c0c0e;
+  --bg-secondary: #141418;
+  --bg-card: #1a1a1f;
+  --bg-card-hover: #222228;
+  --accent: #e5a00d;
+  --accent-hover: #f0b81a;
+  --accent-muted: rgba(229, 160, 13, 0.2);
+  --text-primary: #f4f4f5;
+  --text-secondary: #a1a1aa;
+  --text-muted: #71717a;
+  --border: rgba(255, 255, 255, 0.06);
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --radius: 12px;
+  --radius-lg: 16px;
+  --font: "Outfit", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
 * {
-  font-family: Helvetica;
+  font-family: var(--font);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  background-color: #000;
-  color: aliceblue;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.5;
 }
 
 a {
   text-decoration: none;
-  color: rgb(0, 71, 202);
-  transition: 0.5s;
+  color: var(--accent);
+  transition: color 0.2s ease;
 }
 
 a:hover {
-  color: rgb(0, 71, 202);
+  color: var(--accent-hover);
+}
+
+::selection {
+  background: var(--accent-muted);
+  color: var(--text-primary);
 }

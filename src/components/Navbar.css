@@ -1,105 +1,115 @@
 #navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
-  background-color: #121212;
+  padding: 0.75rem 2rem;
+  background: rgba(12, 12, 14, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+#navbar h2 {
+  font-weight: 600;
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
 }
 
 #navbar h2 a {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+#navbar h2 a:hover {
+  color: var(--accent);
+}
+
+#navbar h2 a svg {
+  font-size: 1.6rem;
+  color: var(--accent);
 }
 
 #navbar form {
   display: flex;
-  gap: 0.5rem;
+  gap: 0;
+  max-width: 380px;
+  width: 100%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  overflow: hidden;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#navbar form:focus-within {
+  border-color: var(--accent-muted);
+  box-shadow: 0 0 0 3px var(--accent-muted);
 }
 
 #navbar input {
-  padding: 0.2rem 0.8rem;
-  border-radius: 4px;
+  flex: 1;
+  padding: 0.65rem 1.25rem;
   border: none;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  outline: none;
+}
+
+#navbar input::placeholder {
+  color: var(--text-muted);
 }
 
 #navbar form button {
-  background-color: rgb(0, 71, 202);
-  border: 2px solid rgb(0, 71, 202);
-  border-radius: 4px;
-  color: #ffffff;
-  padding: 0.3rem;
-  font-size: 1.3rem;
+  background: var(--accent);
+  border: none;
+  color: var(--bg-primary);
+  padding: 0.65rem 1rem;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+#navbar form button:hover {
+  background: var(--accent-hover);
 }
 
 @media (max-width: 425px) {
   #navbar {
     flex-direction: column;
-    padding: 0.5rem 1rem;
+    gap: 1rem;
+    padding: 0.75rem 1rem;
   }
 
   #navbar h2 a {
-    font-size: 1.2rem; /* Reduz tamanho do texto */
-    gap: 0.3rem;
+    font-size: 1.25rem;
   }
 
   #navbar form {
-    flex-direction: row;
-    gap: 0.3rem; /* Reduz o espaço entre elementos */
-    width: 100%;
-    margin-top: 15px;
-  }
-
-  #navbar input {
-    width: 100%; /* Faz o campo ocupar toda a largura */
-  }
-
-  #navbar form button {
-    font-size: 1rem; /* Reduz tamanho da fonte */
-    padding: 0.4rem; /* Ajusta o botão */
-    width: 8%; /* Botão também ocupa toda a largura */
+    max-width: 100%;
   }
 }
 
 @media (min-width: 426px) and (max-width: 767px) {
   #navbar {
-    flex-direction: row;
-    padding: 1rem 1.5rem;
+    padding: 0.75rem 1.25rem;
   }
 
-  #navbar h2 a {
-    font-size: 1.5rem;
-  }
-
-  #navbar input {
-    width: auto; /* Volta ao tamanho padrão */
-  }
-
-  #navbar form button {
-    font-size: 1.1rem;
-    padding: 0.4rem 0.8rem;
+  #navbar form {
+    max-width: 280px;
   }
 }
 
 @media (min-width: 768px) {
-  #navbar {
-    flex-direction: row;
-    padding: 1rem 2rem;
-  }
-
   #navbar h2 a {
-    font-size: 1.8rem; /* Tamanho maior para telas grandes */
-  }
-
-  #navbar input {
-    width: auto;
-  }
-
-  #navbar form button {
-    font-size: 1.3rem; /* Tamanho original */
-    padding: 0.3rem 0.8rem;
+    font-size: 1.5rem;
   }
 }

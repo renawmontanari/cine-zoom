@@ -63,6 +63,9 @@ const Movie = () => {
 
   return (
     <div className="movie-page">
+      {!movie && (
+        <p className="movie-loading">Carregando filme...</p>
+      )}
       {movie && (
         <>
           <div className="container-content">
